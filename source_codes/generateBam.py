@@ -107,7 +107,6 @@ def printUsage():
     print('\tfile.txt is a bed-like file with your input genomic positions. Please write chromosome and start only\n')
     print('Execution example:\n') 
     print('\tpython generateBam.py bamFile=Example_chr17.bam positionFile=example_positions.txt\n')
-    print('\tThe input bam need to be indexed (produce files .bai with samtools) \n')
     print('\tThis program requires execution of duplexCaller with the same input parameters.\n')
     print('Please give the arguments in the indicated order similar to the provided example!\n') 
 

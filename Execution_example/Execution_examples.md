@@ -23,7 +23,7 @@ and few positions to screen similar to the ones in the provided file:
 example_positions.txt
 ```
 
-We cannot provide the reference and the BAM due to storage restrictions, but you can find the reference it elsewhere (chr1, chr2, chr3 and so on not with 1,2,3...)
+We cannot provide the reference and the BAM due to storage restrictions, but you can find reference genome  elsewhere 
 
 Please contact Dimitrios to obtain the Example_chr17.bam or other toy samples.
 
@@ -36,7 +36,6 @@ Type the following command:
 python duplexCaller.py bamFile=Example_chr17.bam positionFile=example_positions.txt referenceGenome=myRef.fa
 ```
 
-
 ### Question 3: What is the output ?
 
 If you execute the previous example you will see a folder named Example_chr17 
@@ -45,7 +44,7 @@ and inside this folder you will find a subfolder named RESULTS and also another 
 
 The intermediate files are used by the generateBam tool for visualization purposes see below.
 
-In this current version we store many intermediate files (such as the VariantDuplexDict.txt files) for de-bugging purposes.
+In this current version we store many intermediate files (such as the VariantDuplexDict.txt files) to better inspect the results.
 
 The duplexCaller results are written in a TAB-limited file named 
 
@@ -65,9 +64,9 @@ chr17	37866005	C	1805	0	0	0	1805	0	0	0,0	REF	0,0	1063,331	0,0	0,0
 
 For each position we write the genomic coordinates (col 1,2), the reference allele (col 3), the total reads (col 4) and then the number of reads supporting A,C,G,T as well as cases with DEL and INS (col 5-10). 
 
-The last 5 columns (named for example DistFrag_*,DUP_*), report the number of distinct fragments and duplexes per alternative allele including INS and DEL
+The last 5 columns (named for example DistFrag_*,DUP_*), report the number of distinct fragments and duplexes per alternative allele including INS and DEL (comma delimited values)
 
-This information is used further to accept or reject variants (e.g., minimum number of duplexes==2) 
+This information is used further to accept or reject variants based on other criteria (e.g., minimum number of duplexes==2) 
 
 
 ### Question 4: How do I run  generateBAM  ?
@@ -82,11 +81,11 @@ python generateBam.py bamFile=Example_chr17.bam positionFile=example_positions.t
 The program generates a bam file named (from the Example_chr17_variants.bam in our example) in the RESULTS subfolder that contains the reads supporting the variants of interest.
 
 
-### Question 5: I have problems running the analysis, what should I do ?
+### Question 5: I have problems to run the analysis, what should I do ?
 
-You try to re-produce the example, you try to resolve the dependenices (pysam, samtools, samtools in the PATH)...
+You try to re-produce the example, you try to resolve the dependenices (pysam, samtools, samtools in the PATH) and....you try a bit more in general...
 
-And you can always contact Dimitrios and ask for help =)
+You can always contact Dimitrios and ask for help =)
 
 
 

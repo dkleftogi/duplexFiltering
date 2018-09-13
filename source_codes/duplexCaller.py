@@ -98,7 +98,7 @@ def printUsage():
     print('\tfile.fa  is a reference genome in fasta format. Please use the same reference you used for the aligment of the bam file.')
     print('Execution example:\n') 
     print('\tpython duplexCaller.py bamFile=Example_chr17.bam positionFile=example_positions.txt referenceGenome=myRef.fa \n')
-    print('\tThe reference genome and the input bam need to be indexed (produce files .bai, .fai and .dict) \n')
+    print('\tThe reference genome and the input bam need to be indexed (produce files .bai, and .fai and .dict for the reference) \n')
     print('Please give the arguments in the indicated order similar to the provided example!\n') 
 
 exitFlag = 0

@@ -4,8 +4,8 @@ Circulating free DNA sequencing (cfDNA-Seq) can portray cancer genome landscapes
 
 Here we provide the duplexCaller software for variant filtering and error correction.
 
-We also provide a utility program generateBam that generates a BAM file containing only the reads
-tha support the variants of interest processed by duplexCaller. Helpful for debugging and visualization.
+We also provide the program generateBam that generates a BAM file that contains only the reads
+tha support the variants of interest as processed by duplexCaller. Helpful utility for debugging and visualization.
 
 ## Publication
 
@@ -34,11 +34,11 @@ Please note that the project is UNDER DEVELOPMENT, so changes might appear in ne
 
 The current version (13-Sep-2018), handles adaptor read-through cases and discard reads with mapping quality 0.
 
-Please open Execution_examples.md to see how to use the program. 
+Please open Execution_examples to see how to use the program. 
 
 ## Contact
 
-Developer: Dr Dimitrios Kleftogiannis
+Dr Dimitrios Kleftogiannis
 
 Comments and bug reports are welcome, email to dimitrios DOT kleftogiannis AT icr DOT ac DOT uk 
 
@@ -48,15 +48,13 @@ You are free to modify, extend or distribute this code, as long as our copyright
 
 ## Licence
 
-Copyright 2017 -- Dimitrios Kleftogiannis -- www.icr.ac.uk
+Copyright 2017 -- Dimitrios Kleftogiannis -- The Institute of Cancer Research (ICR)
 
-The Institute of Cancer Research (ICR) -- Centre for Evolution and Cancer -- Translational Oncogenomics Team & Bioinformatics Team
+Centre for Evolution and Cancer -- Translational Oncogenomics Team & Bioinformatics Team
        			
 duplexCaller is freely available software and licensed under the Educational Community License, Version 2.0 (the "License") 
 
-You may not use this program except in compliance with the License. You may obtain a copy of the License at:
-
-https://opensource.org/licenses/ECL-2.0
+You may not use this program except in compliance with the License. You may obtain a copy of the License at: https://opensource.org/licenses/ECL-2.0
 
 
 
