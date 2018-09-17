@@ -87,6 +87,8 @@ from itertools import groupby
 import datetime
 import time
 import threading
+#CHECK THE PLATFORM 
+import platform
 
 #prints information about program's execution
 def printUsage():
@@ -229,14 +231,31 @@ def generateTargetSamFile(posList,bamFileName,targetSamFileName,SAM_FILES):
             tmpBamFile=SAM_FILES+'/'+bamFileName+'_'+chrom+'.bam'
             #print('\t\tProcessing:%s\n'%(chrom))
 
-            #HERE be careful, there is some problem between MAC and FEDORA
-            #THIS PART WORKS ONLY FOR MAC
-            #if you use Fedora, this code is not gonna work, so contact Dimitrios
-
-            for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
-                if eachLine=='\n':
+            #UNIFIED VERSION
+            #UPDATED 17 SEP 2018
+            myPlat=platform.system()
+            if 'Linux' in myPlat or 'linux' in myPlat:
+                #write the code for fedora
+                for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
                     outPosFile.write('%s\n'%(key))
-                outSamFile.write(eachLine)
+                    outSamFile.write(eachLine)
+
+            elif 'Darwin' in myPlat or 'darwin' in myPlat:
+                #write the code for MAC
+                for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
+                    if eachLine=='\n':
+                        outPosFile.write('%s\n'%(key))
+                    outSamFile.write(eachLine)
+            else:
+                ts = time.time()
+                st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+                print('[%s] ERROR from function generateTargetSamFile: The Operating System is not supported!\n\n\n'%(st))
+                print('[%s] THE PROGRAM WILL TERMINATE !!\n'%(st))
+                print('************************************************************************************************************************************\n')
+                sys.exit()
+
+
+            
 
         outSamFile.close()
         outPosFile.close()

@@ -36,20 +36,9 @@ The current version (13-Sep-2018), handles adaptor read-through cases and discar
 
 Please open Execution_examples to see how to use the program. 
 
-### Important note
+#### Releases
 
-There is an issue in line 239 between MAC systems and Fedora. 
-
-For Mac OS users please use program:
-```
-duplexCaller.py
-```
-For Fedora users please use program:
-```
-duplexCaller_fedora.py
-```
-
-We are working to unify the program versions independent of platforms.
+17-Sep-2018: Unified version that fixes the bug between Mac and Linux systems.
 
 ## Contact
 
