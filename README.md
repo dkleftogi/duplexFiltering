@@ -23,7 +23,7 @@ duplexCaller tool is written in Python 2.The Python compiler used for developmen
 
 The current version works for Mac OS and Fedora systems. 
 
-Users of CentoOS and Ubuntu please contact Dimitrios Kleftogiannis (see below) for more information. The program does not work for Windows systems. 
+Users of CentOS and Ubuntu please contact Dimitrios Kleftogiannis (see below) for more information. The program does not work for Windows systems. 
 
 The program depends on pysam libraries downloaded from:
 ```
@@ -44,7 +44,9 @@ Please open Execution_examples to see how to use the program.
 
 #### Releases
 
-17-Sep-2018: Unified version that fixes the bug between Mac and Linux systems.
+9-Oct-2018 : Version that works only for Mac OS and Fedora systems. For other Linux platforms is under development.
+
+17-Sep-2018: Version that fixes the bug between Mac and Fedora systems
 
 ## Contact
 
