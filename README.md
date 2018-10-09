@@ -19,7 +19,13 @@ DOI: 10.1373/clinchem.2018.289629
 
 ## Dependencies and System Requirements
 
-duplexCaller tool is written in Python 2.The Python compiler used for development is the Python Python 2.7.10 (default, Oct 23 2015, 19:19:21).The program has been developed in a Mac OS computer with El Capitan version 10.11.5. The program has been tested only in Mac and Fedora systems but has not been tested for Windows systems. The program depends on pysam libraries downloaded from:
+duplexCaller tool is written in Python 2.The Python compiler used for development is the Python Python 2.7.10 (default, Oct 23 2015, 19:19:21).The program has been developed in a Mac OS computer with El Capitan version 10.11.5. 
+
+The current version works for Mac OS and Fedora systems. 
+
+Users of CentoOS and Ubuntu please contact Dimitrios Kleftogiannis (see below) for more information. The program does not work for Windows systems. 
+
+The program depends on pysam libraries downloaded from:
 ```
 http://pysam.readthedocs.io/en/latest/index.html
 ```
