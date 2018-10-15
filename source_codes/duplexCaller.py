@@ -210,9 +210,10 @@ def storePositionsFile(bedFile):
     return aDict
 
 #this function takes as input the bamFile, the bedFile and produces a sam file with all reads spanning the positions of interest
-def generateTargetSamFile(posList,bamFileName,targetSamFileName,SAM_FILES):
+def generateTargetSamFile(posList,realBamFile,bamFileName,targetSamFileName,SAM_FILES):
 #first check if the bam file exists
-    bamFile=bamFileName+'.bam'
+    bamFile=realBamFile
+    #bamFile=bamFileName+'.bam'
     if os.path.exists(bamFile):
         #write intermediate results
         tmpSamFile=SAM_FILES+'/'+bamFileName+'_tmpTarget.sam'
@@ -232,13 +233,36 @@ def generateTargetSamFile(posList,bamFileName,targetSamFileName,SAM_FILES):
             #print('\t\tProcessing:%s\n'%(chrom))
 
             #UNIFIED VERSION
-            #UPDATED 17 SEP 2018
+            #UPDATED 15 OCT 2018
             myPlat=platform.system()
             if 'Linux' in myPlat or 'linux' in myPlat:
-                #write the code for fedora
-                for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
-                    outPosFile.write('%s\n'%(key))
-                    outSamFile.write(eachLine)
+                #write the code for linux
+                #and check different distributions
+                myDist=platform.linux_distribution()
+                myDist=myDist[0]
+                myVersion=myDist[1]
+                #this is for CentOS 7.5.1804
+                if ('CentOS' in myDist or 'Cent' in myDist or 'cent' in myDist) and ('7.5' in myVersion):
+                    for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
+                        if eachLine=='\n':
+                            outPosFile.write('%s\n'%(key))
+                        outSamFile.write(eachLine)
+                elif 'Debian' in myDist or 'debian' in myDist:
+                    for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
+                        if eachLine=='\n':
+                            outPosFile.write('%s\n'%(key))
+                        outSamFile.write(eachLine)
+                elif ('CentOS' in myDist or 'Cent' in myDist or 'cent' in myDist) and ('7.2' in myVersion):
+                    #this works for a particular version of CentOS 7.2.1511
+                    for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
+                        outPosFile.write('%s\n'%(key))
+                        outSamFile.write(eachLine)
+                else:
+                    #hopefully this works for other Linux platforms too....
+                    for eachLine in pysam.view('-F','256','-L',tmpBedFile,tmpBamFile):
+                        if eachLine=='\n':
+                            outPosFile.write('%s\n'%(key))
+                        outSamFile.write(eachLine)
 
             elif 'Darwin' in myPlat or 'darwin' in myPlat:
                 #write the code for MAC
@@ -995,7 +1019,7 @@ def myMain():
         print('\n[%s] Function generateTargetSamFile: generate reads that span the positions of interest'%(st))
         #dont give the actual bam file BUT his prefix and based on the chromosome we will generate the bam file
         targetSamFileName=SAM_FILES+'/'+bamFilePrefix+'_target.mysam'
-        generateTargetSamFile(posList,bamFilePrefix,targetSamFileName,SAM_FILES)
+        generateTargetSamFile(posList,bamFile,bamFilePrefix,targetSamFileName,SAM_FILES)
         #remember that if we like, we also have the conventional samfile...
         #tmpSamFile=bamFilePrefix+'_tmpTarget.sam'
 

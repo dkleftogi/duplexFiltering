@@ -19,11 +19,13 @@ DOI: 10.1373/clinchem.2018.289629
 
 ## Dependencies and System Requirements
 
-duplexCaller tool is written in Python 2.The Python compiler used for development is the Python Python 2.7.10 (default, Oct 23 2015, 19:19:21).The program has been developed in a Mac OS computer with El Capitan version 10.11.5. 
+duplexCaller tool is written in Python 2.The Python compiler used for development is the Python Python 2.7.10 (default, Oct 23 2015, 19:19:21).
 
-The current version works for Mac OS and Fedora systems. 
+The program has been developed in a Mac OS computer with El Capitan version 10.11.5. 
 
-Users of CentOS and Ubuntu please contact Dimitrios Kleftogiannis (see below) for more information. The program does not work for Windows systems. 
+The program has been tested for Mac OS, CentOS (versions 7.2.1511 and 7.5.1804) and Debian systems. Users of other Linux systems different than the above, might find problems: Please contact Dimitrios Kleftogiannis (see below) for troubleshooting. 
+
+The program does not work for Windows systems. 
 
 The program depends on pysam libraries downloaded from:
 ```
@@ -42,11 +44,10 @@ The current version (13-Sep-2018), handles adaptor read-through cases and discar
 
 Please open Execution_examples to see how to use the program. 
 
-#### Releases
+#### Current Release
 
-9-Oct-2018 : Version that works only for Mac OS and Fedora systems. For other Linux platforms is under development.
+15-Oct-2018 : Version tested for MacOS, CentOS (versions 7.2.1511 and 7.5.1804) and Debian.
 
-17-Sep-2018: Version that fixes the bug between Mac and Fedora systems
 
 ## Contact
 
